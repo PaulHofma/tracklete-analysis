@@ -160,7 +160,7 @@ for name in name_list:
             
             z1 = np.polyfit(x[idx], y[idx], 1)
             p1 = np.poly1d(z1)
-            axes[plot_counter].plot(dd,p1(xx),"r--",label=r"Trend, 1st order [$\Delta$={}{:.2}]".format(("+" if z1[0]>0 else ""), z1[0]*7))
+            axes[plot_counter].plot(dd,p1(xx),"r--",label=r"Trend, 1st order [$\Delta$={}{:.2}/w]".format(("+" if z1[0]>0 else ""), z1[0]*7))
             
             z2 = np.polyfit(x[idx], y[idx], 2)
             p2 = np.poly1d(z2)
