@@ -27,6 +27,9 @@ Currently the program requires you to have Python installed; I intend to turn th
  - matplotlib
  - sys
  
+## Where do I download it?
+For those of you unfamiliar with GitHub: download the most current version of the app by going to <a href=https://github.com/PaulHofma/tracklete-analysis/releases>Releases</a>. There you just click the top option to download, probably named tracklete-analysis_v#.#.#.zip.
+ 
  ## Scheduled improvements for future versions:
  - "Idiot Proofing": I'm planning to turn this into an independent executable with a proper GUI, so it's still easily useable by folks who don't feel comfortable tinkering with their computers or the program manually. Initially I'll be doing this only for windows (providing you with a .exe) - though I expect to have Mac and Linux versions ready shortly after (which should be much easier as Mac comes with Python preinstalled and if you don't have Python installed and you're running Linux what are you even doing tbh).
    - Progress: 90% - Initial GUI design is finished and working; installer still has to be made, and then I'll have to think about how to port to Linux and OSX.
