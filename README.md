@@ -19,6 +19,9 @@ These are all also detailed in the program itself right where you have to change
 #### Footnotes:
 <a name="myfootnote1">1</a>: Note that 'rating' is the column with the star in Tracklete; this is supposed to give your athlete a way to rate their overall well being for the day.
 
+### MATH: What's with all this 'Trend Order' business?
+In case you're interested in the math used but certain what is meant by 'order' in this case: I'm plotting polynomials of order x, meaning these are functions of the type y = a + bx + cx<sup>2</sup> + dx<sup>3</sup> .... The highest power of x in this case denotes the order; so a 'First order trend' is a trend with formula y = a + bx, a straight line. By comparison, the other 'standard' order plotted is second order, so y = a + bx + cx<sup>2</sup>. While lower order trends are good for getting a feeling for the general <i>direction</i> of a trend, a higher order trend is better for picking up on the more subtle <i>details</i>. For example, for an athlete who has been losing weight but is now stabilizing, a second order trend will generally be a much better predictor than a first order trend. Again, human fysiology is complicated and models are simple by necessity; however, trends of different order may reveal different details about the data, and therefore using some common sense and combining insights from different curves may therefore help give you a better idea of what the <i>true</i> trend is.
+
 ## Requirements
 Currently the program requires you to have Python installed; I intend to turn this into an independent app at some point, but haven't  gotten around to it yet. In addition to plain Python, Tracklete Analyzer makes use of the following libraries, which may or may not have come pre-installed with the Python distribution you have installed:
  - numpy
