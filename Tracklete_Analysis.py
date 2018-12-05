@@ -2,7 +2,17 @@
 Created on 19 Nov 2018
 
 @author: Paul Hofma
-@version: 1.0.1
+@version: 1.0.1 (GUILESS VERSION)
+
+@disclaimer:
+You're advised to take any and all trends it reproduces with a good dose of salt and 
+common sense. These are simply the trends visible in the data, and while the graph extrapolates for 
+another 2 weeks by default, these results are (obviously) not guaranteed. In addition, 1st and 2nd order
+interpolations are by their nature rather simplistic, and especially e.g. weight graph may display
+something more like exponential or slightly sinusoidal behaviour; none of this will be modelled 
+(though perhaps it may be in a future version).
+
+TL;DR - human fysiology is complicated. These graphs are simple. Draw your conclusions with some caution.
 
 '''
 
@@ -14,23 +24,11 @@ Current version takes in a csv file with Tracklete bodystats, and returns (and s
 heartrate, and mood. Also draws trend lines in all of these, both 1st (linear) and second (quadratic) order.
 
 HOW TO USE:
-1. Prepare your csv. To do so, 
-    a. Export bodystats (either through bodystat or ergo page). 
-    b. Save single sheet as CSV, named [athlete name].csv
-    c. Make sure the CSV file is in the same folder as this file
+1. Export bodystats as excel (either individual or group) from Tracklete.io
 
-2. Change the value going into input_file_name below into the file you just saved, including(!) ''. 
-    It should look like:
-    input_file_name = 'athlete name.csv'
+2. Set parameters in OPTIONAL PARAMS below as desired.
     
-3. Run script.
-
-4. DISCLAIMER - You're advised to take any and all trends it reproduces with a good dose of salt and 
-common sense. These are simply the trends visible in the data, and while the graph extrapolates for 
-another 2 weeks by default, these results are (obviously) not guaranteed. In addition, 1st and 2nd order
-interpolations are by their nature rather simplistic, and especially e.g. weight graph may display
-something more like exponential or slightly sinusoidal behaviour; none of this will be modelled 
-(though perhaps it may be in a future version).
+3. Run script by dragging bodystat-excel onto the program.
 
 """
 ######################################################
@@ -71,9 +69,11 @@ Plots will then get lines (when relevant) for:
 WEIGHT_LINES = True
 AVG_WEIGHT = 57
 
-###########
-## SETUP ##
-###########
+##########################
+##                      ##
+##   --   SETUP   --    ##
+##                      ##
+##########################
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -81,7 +81,7 @@ import numpy as np
 import matplotlib.dates as mdates
 import sys
 
-TESTING = False
+TESTING = True
 
 if not TESTING:
     assert len(sys.argv) > 1, "You did not provide a file to run."
@@ -103,7 +103,7 @@ else:
 if TESTING: print(name_list)
 
 if WEIGHT_LINES:
-    assert(AVG_WEIGHT == 57 or AVG_WEIGHT == 70)
+    assert(AVG_WEIGHT == 57 or AVG_WEIGHT == 70), "The average athlete weight provided doesn't match either 57 or 70 kg."
     if AVG_WEIGHT == 57: 
         MAX_WEIGHT = AVG_WEIGHT + 2.0
         WINT_MAX = MAX_WEIGHT + 2.5
@@ -111,7 +111,6 @@ if WEIGHT_LINES:
         MAX_WEIGHT = AVG_WEIGHT + 2.5
         WINT_MAX = MAX_WEIGHT + 2.5       
         
-
 ################
 ## PLOT STUFF ##
 ################
@@ -121,6 +120,7 @@ assert sum(PLOTS) != 0, "You have not enabled any plots! See Optional Parameters
 
 for name in name_list:
     """ For each in name in name_list, make a plot """
+    print("Creating plots for {}".format(name))
     fig, axes = plt.subplots(sum(PLOTS),1,sharex=True,figsize=(12,12))
     if sum(PLOTS) == 1:
         axes = [axes]
@@ -137,8 +137,7 @@ for name in name_list:
 #             print(input_file)
         else:
             print("Data for athlete {} has fewer than N_days_used ({}) data entries, using all available data ({}) instead.".format(name, N_days_used, len(input_file)))
-                                                       
-    if TESTING: print(name)
+
     plot_counter = 0
     
     if PLOTS[0]:
