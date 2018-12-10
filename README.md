@@ -28,7 +28,6 @@ Currently the program requires you to have Python installed; I intend to turn th
  - pandas
  - xlrd
  - matplotlib
- - sys
  
 ## Where do I download it?
 For those of you unfamiliar with GitHub: download the most current version of the app by going to <a href=https://github.com/PaulHofma/tracklete-analysis/releases>Releases</a>. There you just click the top option to download, probably named tracklete-analysis_v#.#.#.zip.
