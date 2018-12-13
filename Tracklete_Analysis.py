@@ -81,7 +81,7 @@ import numpy as np
 import matplotlib.dates as mdates
 import sys
 
-TESTING = True
+TESTING = False
 
 if not TESTING:
     assert len(sys.argv) > 1, "You did not provide a file to run."
