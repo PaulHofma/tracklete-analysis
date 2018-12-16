@@ -1,0 +1,75 @@
+#:kivy 1.10.1
+#:import Factory kivy.factory.Factory
+
+<ActionSpinnerOptions@SpinnerOption>
+    background_color: .4, .4, .4, 1
+
+<ActionSpinner@Spinner+ActionItem>
+    canvas.before:
+        Color:
+            rgba: 0.128, 0.128, 0.128, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    border: 27, 20, 12, 12
+    background_normal: 'atlas://data/images/defaulttheme/action_group'
+    option_cls: Factory.ActionSpinnerOptions
+
+<ActionDropdown>:
+    on_size: self.width = '220dp'
+
+<AnalysisScreen>:		        	            	
+
+#################
+## MAIN LAYOUT ##
+#################	            	                     
+BoxLayout:
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgb: .6, .6, .6
+        Rectangle:
+            size: self.size
+            source: 'data/background.png'
+	
+    ActionBar:
+    ##############
+    ## ACTIONBAR##
+    ##############
+        ActionView:
+            id: av
+            ActionPrevious:
+                with_previous: (False if sm.current_screen.name == 'Setup' else True) if sm.current_screen else False
+                title: 'Tracklete Analyzer'
+                on_release: app.go_screen_return() if sm.current_screen.name != 'Setup' else False
+            ActionSpinner:
+                id: spnr
+                important: True
+                text: 'Jump to Screen'
+                values: app.display_names
+                on_text:
+                    if sm.current != args[1]:\
+                    idx = app.screen_names.index(args[1]);\
+                    app.go_screen(idx)
+            #ActionButton:
+            #	id: prevscreen
+            #    text: 'Previous screen'
+            #    icon: 'data/icons/chevron-left.png'
+            #    disabled: (app.index == 1 or app.athletes_loaded==False)
+            #    on_release: app.prev_athlete(); print(app.index)
+
+            #ActionButton:
+            #	id: nextscreen
+            #    text: 'Next screen'
+            #    icon: 'data/icons/chevron-right.png'
+            #    disabled: not (app.athletes_loaded==False and app.athlete_current!=app.name_list[-1] and app.index!=1)
+            #    on_release: app.next_athlete(); print(app.index)
+   	
+    ScreenManager:
+        id: sm
+        on_current_screen:
+        	#if TESTING: print(args[1].name)
+            spnr.text = (args[1].name if args[1].name in ['Setup', 'Fileloader'] else app.athlete_current) 
+            idx = (app.screen_names.index(args[1].name) if (args[1].name not in ['_screen0']) else 2)
+            #if idx > -1: app.hierarchy.append(idx)

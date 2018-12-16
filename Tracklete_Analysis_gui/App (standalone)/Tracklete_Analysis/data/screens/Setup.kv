@@ -1,0 +1,175 @@
+##################
+## OPTIONS MENU ##
+##################
+
+AnalysisScreen:
+	name: 'Setup'
+	BoxLayout:
+		height: root.height
+		width: root.width
+		orientation: 'vertical'
+		padding: (100,0)
+		
+		BoxLayout:
+			height: root.height*0.1
+			orientation: 'vertical'
+			
+			Label:
+				color: (10, 255, 255, 1) if app.excel_file_name=='None' else (1,1,1,1)
+				text: 'Excel loaded: {}'.format(app.excel_file_name if app.excel_file_name != None else "No (valid) excel file provided; select a new excel file.")
+				#font_size: '24dp'
+				#size: self.size
+			
+			#Button:
+			#	text: 'test stuff'
+			#	on_release: app._test_check_vars(root)
+			
+			Button:
+				text: 'Choose bodystat file (excel only)'
+				on_release: app.go_screen(0)
+		
+		########################
+		### ORIGINAL OPTIONS ###
+		########################
+		GridLayout: 
+			height: root.height * 0.3
+			width: root.width * 0.3
+			cols: 2
+			row_force_default: True
+			row_default_height: '32dp'
+			spacing: (0,15)
+			padding: (30,20)
+			size_hint: (1, 1)
+	
+			Label:
+				text: 'Number of additional days to plot:'
+				
+			TextInput:
+				id: additional_days
+				text: '7'
+				input_filter: 'int'
+				size_hint_x: None
+				width: 50
+				
+			Label: 
+				text: 'Total number of days to use:\n(Counting back from today;\nenter 0 to use all available data)'
+			
+			TextInput:
+				id: N_days_used
+				text: '30'
+				input_filter: 'int'
+				size_hint_x: None
+				width: 50
+			
+			Label:
+				text: 'Plots to include:'
+				
+			GridLayout:
+				cols: 4
+				width: 150
+				height: '32dp'
+				spacing: (0,15)
+				
+				Label:
+					text: 'Weight'
+				Label:
+					text: 'Heartrate'
+				Label:
+					text: 'Rating'
+				Label:
+					text: 'Sleep'
+					
+				CheckBox:
+					id: PLOT_WEIGHT
+					state: 'down'
+				CheckBox:
+					id: PLOT_HEARTRATE
+					state: 'down'
+				CheckBox:
+					id: PLOT_RATING
+					state: 'down'
+				CheckBox:
+					id: PLOT_SLEEP
+		
+		#################
+		## WEIGHTLINES ##
+		#################
+		GridLayout:
+			height: root.height * 0.25 
+			width: root.width * 0.2
+			cols: 2
+			row_force_default: True
+			row_default_height: '32dp'
+			spacing: (0,25)
+			size_hint: (1, 1)
+			padding: (100, 20)
+			
+			Label:
+				text: 'Use weight lines:'
+			
+	        Switch:
+	        	id: WEIGHT_LINES
+			
+			Label:
+				text: 'If weightlines are active,\nchoose athlete gender:'
+			
+			GridLayout:
+				cols: 2
+				width: 50
+				height: '32dp'
+				spacing: (0,0)
+				
+				Label:
+					text: 'Men'
+				Label:
+					text: 'Women'
+				
+				CheckBox:
+					id: MALE_TRUE
+	            	size_hint_y: None
+	            	height: '48dp'
+	            	state: 'down'
+	            	group: 'gender'
+	            	disabled: not WEIGHT_LINES.active
+				
+				CheckBox:
+					id: FEMALE_TRUE
+	            	size_hint_y: None
+	            	height: '48dp'
+	            	group: 'gender'
+	            	disabled: not WEIGHT_LINES.active
+			
+			Label:
+				text: 'Save plots to drive:'
+			
+	        Switch:
+	        	id: SAVE_PLOTS
+	        	#active: True
+			            	
+	    
+	    #################
+	    ## BOMBS AWAY! ##
+	    #################
+		BoxLayout:
+			height: root.height*0.15
+			orientation: 'vertical' 
+			padding: (50,0)
+			
+			Button:
+				id: bombshell
+				text: "Create Plots"
+		        size_hint_y: None
+		        height: '32dp'
+		        on_release: app.start_analysis()
+				
+			ProgressBar:
+		        id: pb
+		        #size_hint_x: .5
+		        size_hint_y: None
+		        height: '32dp'
+		        value: app.val_progress
+		    Label:
+		    	id: pb_label
+		        text: 'Currently processing: {}'.format(app.name_progress)
+		        size_hint_y: None
+		        height: '32dp'
