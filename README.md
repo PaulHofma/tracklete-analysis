@@ -19,13 +19,18 @@ These are all also detailed in the program itself right where you have to change
 #### Footnotes:
 <a name="myfootnote1">1</a>: Note that 'rating' is the column with the star in Tracklete; this is supposed to give your athlete a way to rate their overall well being for the day.
 
+### MATH: What's with all this 'Trend Order' business?
+In case you're interested in the math used but certain what is meant by 'order' in this case: I'm plotting polynomials of order x, meaning these are functions of the type y = a + bx + cx<sup>2</sup> + dx<sup>3</sup> .... The highest power of x in this case denotes the order; so a 'First order trend' is a trend with formula y = a + bx, a straight line. By comparison, the other 'standard' order plotted is second order, so y = a + bx + cx<sup>2</sup>. While lower order trends are good for getting a feeling for the general <i>direction</i> of a trend, a higher order trend is better for picking up on the more subtle <i>details</i>. For example, for an athlete who has been losing weight but is now stabilizing, a second order trend will generally be a much better predictor than a first order trend. Again, human fysiology is complicated and models are simple by necessity; however, trends of different order may reveal different details about the data, and therefore using some common sense and combining insights from different curves may therefore help give you a better idea of what the <i>true</i> trend is.
+
 ## Requirements
 Currently the program requires you to have Python installed; I intend to turn this into an independent app at some point, but haven't  gotten around to it yet. In addition to plain Python, Tracklete Analyzer makes use of the following libraries, which may or may not have come pre-installed with the Python distribution you have installed:
  - numpy
  - pandas
  - xlrd
  - matplotlib
- - sys
+ 
+## Where do I download it?
+For those of you unfamiliar with GitHub: download the most current version of the app by going to <a href=https://github.com/PaulHofma/tracklete-analysis/releases>Releases</a>. There you just click the top option to download, probably named tracklete-analysis_v#.#.#.zip.
  
  ## Scheduled improvements for future versions:
  - "Idiot Proofing": I'm planning to turn this into an independent executable with a proper GUI, so it's still easily useable by folks who don't feel comfortable tinkering with their computers or the program manually. Initially I'll be doing this only for windows (providing you with a .exe) - though I expect to have Mac and Linux versions ready shortly after (which should be much easier as Mac comes with Python preinstalled and if you don't have Python installed and you're running Linux what are you even doing tbh).
