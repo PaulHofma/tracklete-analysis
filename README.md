@@ -14,6 +14,8 @@ This functions much like the GUI version, except that you'll have to set the opt
 
 You export your data from Tracklete, which gives you either a batch excel sheet (containing data for all your athletes) or a sheet with the bodystats for a single athlete. You then simply proceed to drag-and-drop this excel file onto the the Python script (by default named Tracklete_Analysis.py) and you'll get a terminal shell showing you the progress as it's happening. As it goes, it will create the graphs for each athlete as specified, and tell you when it's done.
 
+Most important benefit? Only Python and basic libraries required, and the 'program' is just a few kb worth of python script compared to a few hundred MB worth of app.
+
 ## Options Available
 The options currently available for your graphs are:
  - Additional days : this lets you set a number of additional days for which to plot the trends. Useful to get an indication of where the trend is heading.
