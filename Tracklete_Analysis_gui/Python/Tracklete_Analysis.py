@@ -407,7 +407,10 @@ class TrackleteAnalysisApp(App):
                 axes[-1].xaxis.set_major_formatter(mdates.DateFormatter("%d-%m-%Y"))
                 axes[-1].set_xlabel("Date")
                 axes[0].set_title("{}: Trends".format(name))
-                if self.SAVE_PLOTS: fig.savefig("Tracklete_Trends_{}.png".format(name))
+                if self.SAVE_PLOTS: 
+                    if not os.path.isdir(join("..", "Tracklete Trends")):
+                        os.mkdir(join("..", "Tracklete Trends"))
+                    fig.savefig(join("..", "Tracklete Trends", "Tracklete_Trends_{}.png".format(name)))
                 self.plot_list.append(fig)
                 self.display_names.append(name)
                 self.screen_names.append(name)
