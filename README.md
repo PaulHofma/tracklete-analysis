@@ -22,7 +22,7 @@ The options currently available for your graphs are:
  - Total number of days to use : this lets you set how many days (starting at the most recent and counting backwards) of data you want to use. Useful to see investigate trends over longer or shorter periods of time. Note that trends over shorter periods will _by definition_ be less reliable predictors!
  - Plots to include : these are your on/off switches for which of the 4 'types' of bodystats (weight, heartrate, rating<sup>[1](#myfootnote1)</sup>, sleep) you want to plot.
  - Weight lines : whether to include lines to indicate a certain weight requirement; built in such a way that you only need to set this to true and then enter the average weight for your category (presumably 70 for men and 57 for women).
- - Save Plots (_app only_) : whether to save the plots (these will be saved at fairly large size to ensure good quality, and are saved as .png files in the app's "internal folder" (_bug note_: this is a minor bug and will be fixed asap; the intent is to put the images in the folder the excel file came from).
+ - Save Plots (_app only_) : whether to save the plots (these will be saved at fairly large size to ensure good quality, and are saved as .png files in a folder named Tracklete Trends (which will be located in the same folder the program folder and shortcut are in). 
 
 ### Footnotes:
 <a name="myfootnote1">1</a>: Note that 'rating' is the column with the star in Tracklete; this is supposed to give your athlete a way to rate their overall well being for the day.
@@ -55,14 +55,14 @@ In case you're interested in the math used but not certain what is meant by 'ord
 
 ## Scheduled improvements for future versions:
  - Better statistics: I'd like to at least be able to give a margin of error on the trend lines. For this I'll likely have to include some additional packages for statistics (in the meantime likely forcing me to rewrite the whole bit of code that does the calculations for the trend lines), and I'd have to read up on the <i>actual</i> statistics as well... which sounds a lot like work, and so is likely to be put off for a little while. I'm only human folks.
-   - Progress: 0% - not yet started
+   - Progress: 0% - not yet started (priority: medium)
  - GUI improvment: There's a few more bells and whistles I'd like to add to the GUI - everything major is in there currently, but there are a couple of touches that I couldn't get to work in the initial release but that I'd like to get working at some point in the future.
-   - Progress: 0% - not yet started
+   - Progress: 0% - not yet started (priority: medium-low)
  - More options: Mostly, this is just adding more bells and whistles. Giving you an option for how many trend lines you'd like to include, giving you higher-order trendline options, using more sophistic fitters in general (i.e. adding a sinusoid for women's coaches in particular, since periods tend to have at least some recurring, not-insignificant impact on all bodystats), the possibilities are essentially only limited by anything you would like to be able to see. If you have any ideas, feel free to shoot me a message, or else feel free to add to my code yourself! If you do, I'd appreciate it if you would share it with me so I can add it to the repo here.
    - Progress: 
-    - More/different order n trendlines: 0% - not yet started
-    - More sophistic fitters: 0% - not yet started
+    - More/different order n trendlines: 0% - not yet started (priority: medium)
+    - More sophistic fitters: 0% - not yet started (priority: medium)
  - Mac and Linux ports: Eventually I'd like to have at least a Mac port, which I see as something 'essential' to the project. However, with a standalone windows version out there I think the project is good to go for now, so this will probably take a little while as I let it rest for a bit.
   - Progress:
-   - Mac: 0% - not yet started
-   - Linux: 0% - not yet started (low priority)
+   - Mac: 0% - not yet started (priority: high)
+   - Linux: 0% - not yet started (priority: low)
