@@ -125,7 +125,7 @@ class TrackleteAnalysisApp(App):
                 return screen
     
     def _homepath(self):
-        return expanduser('~')
+        return join(expanduser('~'), "Downloads")
     
     def load_file(self, path, selection):
         self.excel_file_name = os.path.join(path, selection[0])
@@ -408,9 +408,11 @@ class TrackleteAnalysisApp(App):
                 axes[-1].set_xlabel("Date")
                 axes[0].set_title("{}: Trends".format(name))
                 if self.SAVE_PLOTS: 
-                    if not os.path.isdir(join("..", "Tracklete Trends")):
-                        os.mkdir(join("..", "Tracklete Trends"))
-                    fig.savefig(join("..", "Tracklete Trends", "Tracklete_Trends_{}.png".format(name)))
+                    if not os.path.isdir(join(os.path.dirname(self.excel_file_name), "Tracklete Trends")):
+                        os.mkdir(join(os.path.dirname(self.excel_file_name), "Tracklete Trends"))
+                    fig.savefig(join(os.path.dirname(self.excel_file_name), "Tracklete Trends", "Tracklete_Trends_{}.png".format(name)))
+#                         os.mkdir(join("..", "Tracklete Trends"))
+#                     fig.savefig(join("..", "Tracklete Trends", "Tracklete_Trends_{}.png".format(name)))
                 self.plot_list.append(fig)
                 self.display_names.append(name)
                 self.screen_names.append(name)
