@@ -32,7 +32,7 @@ The options currently available for your graphs are:
 
 ## Requirements:
 ### GUI version:
-None! It should work out of the box (which is why the file size is a bit big...). Currently there is only a windows version, sadly, but expect at least a working version for OSX shortly. 
+None! It should work out of the box (which is why the program has such a large size, unfortunately). Currently there is only a Windows 10 version, sadly, but expect at least a working version for OSX shortly. 
 
 ### GUI-less version:
 You'll need to have Python 3 installed. In addition, Tracklete Analyzer makes use of the following libraries, which may or may not have come pre-installed with the Python distribution you have installed:
