@@ -1,8 +1,11 @@
-# Trackelete Analyzer V1.0.1
+# Trackelete Analyzer
 A pretty small piece of software, which does one thing very well: take exported bodystat data from <a href="http://tracklete.io">Tracklete</a>, and transform these into useful graphs for humans (or, rather, coaches).
 
+## Interface
+![GUI Example](GUI_ex.png)
+
 ## Example Results
-![Bodystat Analysis Example](Tracklete_Trends_Paul%20Hofma.png)
+![Bodystat Analysis Example](Tracklete_Trends_ex.png)
 
 ## How it works - App Version
 If you've downloaded the .zip file, you'll find that it contains a folder and a (shortcut to a) file called Tracklete_Analysis.exe. The latter file is all you'll ever need to touch, so don't worry about the folder. You can put this shortcut file anywhere you like, it'll work regardless. Note that the first time you start it up it may take a little longer than normal (approx. 10 seconds or so), afterwards it should be much faster. Data should ONLY be gotten from Tracklete, which gives you either a batch excel sheet (containing data for all your athletes) or a sheet with the bodystats for a single athlete. Note that the app was designed to take in the files as presented by Tracklete, and so if you've kept your own set of excel files for whatever reason it won't necessarily load them. You can load in your excel file(s) either by dropping them onto the app itself, or by using the built-in fileloader. 
