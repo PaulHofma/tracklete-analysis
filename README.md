@@ -15,8 +15,6 @@ You've got a few options to fiddle with, all of which are presented on the main 
 ## How it works - GUI-less version
 This functions much like the GUI version, except that you'll have to set the options inside the Python script itself. They're pretty clearly labeled and can be found under the header OPTIONAL PARAMS, so you should find them pretty easily. Loading excel files for the GUI-less version is only possible by drag-and-dropping the excel file of choice onto the python script. You'll get a terminal window showing you the progress as it's happening. As it goes, it will create the graphs you specified (more on that below) for each athlete (or just for the one athlete) including the relevant trend lines, and tell you when it's done.
 
-You export your data from Tracklete, which gives you either a batch excel sheet (containing data for all your athletes) or a sheet with the bodystats for a single athlete. You then simply proceed to drag-and-drop this excel file onto the the Python script (by default named Tracklete_Analysis.py) and you'll get a terminal shell showing you the progress as it's happening. As it goes, it will create the graphs for each athlete as specified, and tell you when it's done.
-
 Most important benefit? Only Python and basic libraries required, and the 'program' is just a few kb worth of python script compared to a few hundred MB worth of app.
 
 ## Options Available
@@ -32,7 +30,7 @@ The options currently available for your graphs are:
 
 ## Requirements:
 ### GUI version:
-None! It should work out of the box (which is why the program has such a large size, unfortunately). Currently there is only a Windows 10 version, sadly, but expect at least a working version for OSX shortly. 
+None! It should work out of the box (which is why the program has such a large size, unfortunately). Currently there is only a Windows 10 version, sadly, but expect at least a working version for OSX in the near future. 
 
 ### GUI-less version:
 You'll need to have Python 3 installed. In addition, Tracklete Analyzer makes use of the following libraries, which may or may not have come pre-installed with the Python distribution you have installed:
@@ -54,7 +52,7 @@ Simply put: I've got to bundle it with not only Python, but also several not-so-
 Working on it! Working from a Windows pc, bundling for Windows is a lot easier, and so that was the first step I chose to take. Note that it should be fairly simple to execute the pure Python version (find it either in the GUI-less release or in the source code) as every Mac has Python 2.7 preinstalled! This means you'll have to use the 3to2 lib to get it to work for you, but it shouldn't be much more work. As for Linux: how come you're using Linux but don't know how to use pip or Python??? For this reason, Linux is currently the absolute bottom priority, but if any real desperate requests come in I might consider it.
 
 ### MATH: What's with all this 'Trend Order' business?
-In case you're interested in the math used but not certain what is meant by 'order' in this case: I'm plotting polynomials of order x, meaning these are functions of the type y = a + bx + cx<sup>2</sup> + dx<sup>3</sup> .... The highest power of x in this case denotes the order; so a 'First order trend' is a trend with formula y = a + bx, a straight line. By comparison, the other 'standard' order plotted is second order, so y = a + bx + cx<sup>2</sup>. While lower order trends are good for getting a feeling for the general <i>direction</i> of a trend, a higher order trend is better for picking up on the more subtle <i>details</i>. For example, for an athlete who has been losing weight but is now stabilizing, a second order trend will generally be a much better predictor than a first order trend. Again, human fysiology is complicated and models are simple by necessity; however, trends of different order may reveal different details about the data, and therefore using some common sense and combining insights from different curves may therefore help give you a better idea of what the <i>true</i> trend is.
+In case you're interested in the math used but not certain what is meant by 'order' in this case: I'm plotting polynomials of order x, meaning these are functions of the type y = a + bx + cx<sup>2</sup> + dx<sup>3</sup> .... The highest power of x in this case denotes the order; so a 'First order trend' is a trend with formula y = a + bx, a straight line. To compare, the other trendline plotted by default is second order, so y = a + bx + cx<sup>2</sup>. While lower order trends are good for getting a feeling for the general <i>direction</i> of a trend, a higher order trend is better for picking up on the more subtle <i>details</i>. For example, for an athlete who has been losing weight but is now stabilizing, or one who is losing weight at an accelerating rate, a second order trend will generally be a much better predictor than a first order trend. Again, human fysiology is complicated and models are simple by necessity; however, trends of different order may reveal different details about the data, and therefore using some common sense and combining insights from different curves may therefore help give you a better idea of what the <i>true</i> trend is.
 
 ## Scheduled improvements for future versions:
  - Better statistics: I'd like to at least be able to give a margin of error on the trend lines. For this I'll likely have to include some additional packages for statistics (in the meantime likely forcing me to rewrite the whole bit of code that does the calculations for the trend lines), and I'd have to read up on the <i>actual</i> statistics as well... which sounds a lot like work, and so is likely to be put off for a little while. I'm only human folks.
@@ -67,5 +65,6 @@ In case you're interested in the math used but not certain what is meant by 'ord
     - More sophistic fitters: 0% - not yet started (priority: medium)
  - Mac and Linux ports: Eventually I'd like to have at least a Mac port, which I see as something 'essential' to the project. However, with a standalone windows version out there I think the project is good to go for now, so this will probably take a little while as I let it rest for a bit.
   - Progress:
-   - Mac: 0% - not yet started (priority: high)
+   - Mac: 50% - Since OSX virtualboxes are hell, apparently, looking for a Mac to borrow so I can actually deploy (priority: high)
    - Linux: 0% - not yet started (priority: low)
+   - Android: 50% - 
