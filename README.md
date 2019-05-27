@@ -64,7 +64,7 @@ In case you're interested in the math used but not certain what is meant by 'ord
     - More/different order n trendlines: 0% - not yet started (priority: medium)
     - More sophistic fitters: 0% - not yet started (priority: medium)
  - Mac and Linux ports: Eventually I'd like to have at least a Mac port, which I see as something 'essential' to the project. However, with a standalone windows version out there I think the project is good to go for now, so this will probably take a little while as I let it rest for a bit.
-  - Progress:
-   - Mac: 50% - Since OSX virtualboxes are hell, apparently, looking for a Mac to borrow so I can actually deploy (priority: high)
-   - Linux: 0% - not yet started (priority: low)
-   - Android: 50% - 
+   - Progress:
+    - Mac: 50% - Since OSX virtualboxes are hell, apparently, looking for a Mac to borrow so I can actually deploy (priority: high)
+    - Linux: 0% - not yet started (priority: low)
+    - Android: 50% - 
